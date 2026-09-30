@@ -20,3 +20,11 @@ app.get('/api/lokasi', async (req, res) => {
 
         const data = response.data;
 
+        const lokasi = data.features[0].matching_text;
+        const koordinat = data.features[0].geometry.coordinates;
+
+        res.json({ 
+            kota: lokasi,
+            koordinat: koordinat
+        });
+
